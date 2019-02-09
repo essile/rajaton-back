@@ -1,21 +1,31 @@
+const Product = require('../product/product');
+
 class Stock {
     constructor() {
         this.store = [];
     }
 
+
     addToStore(product) {
-        this.store.push(product);
+        let success = false;
+
+        if (Product.validProduct(product) === true) {
+            this.store.push(product);
+            success = true;
+        }
+        return success;
     }
 
-    removeFromStore(productName) {
+    removeFromStore(productToBeRemoved) {
+        let success = false;
+
         this.store.map(product => {
-            if (product == productName) {
-                this.store.pop(productName);
-                return true;
-            } else {
-                return false;
+            if (product == productToBeRemoved) {
+                this.store.pop(product);
+                success = true;
             }
         });
+        return success;
     }
 }
 

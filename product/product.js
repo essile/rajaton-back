@@ -9,12 +9,17 @@ class Product {
         this.price = price;
     }
 
-    getProductInfo () {
-        return `Product ${this.id} - ${this.name}, ${this.category}, ${this.price} e`
+    static validProduct(product) {
+        let response = false;
+
+        if (product.name && product.price && product.category && product.id) {
+            response = true;
+        }
+        return response;
     }
 
-    addToStock() {
-        
+    getProductInfo () {
+        return `Product ${this.id} - ${this.name}, ${this.category}, ${this.price} e`
     }
 }
 
