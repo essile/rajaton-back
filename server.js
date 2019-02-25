@@ -23,6 +23,6 @@ app.get('/api/hello', (req, res) => {
   res.json({ test: 'Hello' });
 });
 
-app.get('/api/stock-products', (req, res) => {
+app.get('/api/shop-window-products', (req, res) => {
   res.json(productList);
 });
