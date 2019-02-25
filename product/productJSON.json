@@ -1,0 +1,23 @@
+[
+    {
+        "category": "Beard oil",
+        "name": "Juniper",
+        "price": 22.95,
+        "description": "Juniper ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "image_url": "dummy-address-juniper.jpg"
+    },
+    {
+        "category": "Soap bar",
+        "name": "Sea",
+        "price": 14.50,
+        "description": "Sea ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "image_url": "dummy-address-sea.jpg"
+    },
+    {
+        "category": "Deodorant Cream",
+        "name": "Icy Lake",
+        "price": 14.95,
+        "description": "Icy Lake ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "image_url": "dummy-address-icy-lake.jpg"
+    }
+]

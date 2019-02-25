@@ -1,18 +1,12 @@
-const express = require('express');
-const cors = require('cors');
+const express = require('./client/node_modules/express');
+const cors = require('./client/node_modules/cors');
 const Stock = require('./stock/stock');
-var AWS = require('aws-sdk');
+const productList = require('./product/productJSON.json');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 1234;
 
 const stock = new Stock();
-
-AWS.config.update({
-  region: "eu-north-1",
-  endpoint: "http://localhost:8000"
-});
-var docClient = new AWS.DynamoDB.DocumentClient();
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
@@ -30,23 +24,5 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.get('/api/stock-products', (req, res) => {
-  // res.json(stock.store);
-  var params = {
-    TableName: "Products"
-  };
-  docClient.scan(params, onScan);
-
-  function onScan(err, data) {
-    if (err) {
-      console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
-    } else {
-      console.log("Scan succeeded.");
-      data.Items.forEach(function (product) {
-        stock.addToStore(product);
-      });
-    }
-    res.json(data.Items);
-  }
-  // console.log('storessa', stock.store);
-  // res.json(stock.store);
+  res.json(productList);
 });
