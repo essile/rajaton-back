@@ -1,7 +1,7 @@
-const express = require('./client/node_modules/express');
-const cors = require('./client/node_modules/cors');
-const bodyParser = require('./client/node_modules/body-parser');
-const nodemailer = require('./client/node_modules/nodemailer');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const Stock = require('./stock/stock');
 const productList = require('./product/productJSON.json');
 
