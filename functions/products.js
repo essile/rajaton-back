@@ -14,7 +14,7 @@ app.use(cors({
 exports.handler = function (event, context, callback) {
     console.log(productList);
     callback(null, {
-        statusCode: 200,
+        statusCode: "200",
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials": true
