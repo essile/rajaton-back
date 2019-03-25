@@ -5,12 +5,16 @@ import querystring from 'querystring';
 
 const app = express();
 app.use(cors({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Methods': '*',
+    'Access-Control-Max-Age': '2592000',
+    'Access-Control-Allow-Credentials': 'true',
     'allowedHeaders': ['sessionId', 'Content-Type'],
     'exposedHeaders': ['sessionId'],
     'origin': '*',
     'preflightContinue': 'true',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE'
 }));
 
