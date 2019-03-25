@@ -27,7 +27,7 @@ exports.handler = function (event, context, callback) {
             pass: PW
         }
     });
-
+    console.log('received message', data.formMessage);
     smtpTransport.sendMail({
         from: `${data.formName} <${data.formEmail}>`,
         to: `Rajaton <rajatonproducts@gmail.com>`,
@@ -37,12 +37,14 @@ exports.handler = function (event, context, callback) {
     }, function (error, response) {
         if (error) {
             smtpTransport.close();
+            console.log('error', error);
             return {
                 statusCode: 500,
                 body: 'sending the message failed'
             };
         }
         smtpTransport.close();
+        console.log('worked');
         return {
             statusCode: 200,
             body: 'sending the message worked'
