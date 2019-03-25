@@ -8,7 +8,7 @@ app.use(cors({
     'allowedHeaders': ['sessionId', 'Content-Type'],
     'exposedHeaders': ['sessionId'],
     'origin': '*',
-    'preflightContinue': true,
+    'preflightContinue': 'true',
     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE'
 }));
 
@@ -16,6 +16,7 @@ exports.handler = function (event, context, callback) {
     console.log(event.httpMethod);
 
     if (event.httpMethod !== "POST") {
+        console.log('not allowed');
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
