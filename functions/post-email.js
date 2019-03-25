@@ -23,8 +23,8 @@ exports.handler = function (event, context, callback) {
     var smtpTransport = nodemailer.createTransport({
         service: "Gmail",
         auth: {
-            user: EMAIL,
-            pass: PW
+            user: process.env.email,
+            pass: process.env.password
         }
     });
     console.log('received message', data.formMessage);
