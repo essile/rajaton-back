@@ -22,6 +22,8 @@ exports.handler = function (event, context, callback) {
 
     const data = event.body;
     console.log('email received', data);
+    const params = querystring.parse(event.body);
+    console.log('new email', params);
 
     var smtpTransport = nodemailer.createTransport({
         service: "Gmail",
