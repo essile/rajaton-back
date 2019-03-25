@@ -17,8 +17,7 @@ exports.handler = function (event, context, callback) {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
-    const params = querystring.parse(event.body);
-    const data = params.body;
+    const data = event.body;
 
     var smtpTransport = nodemailer.createTransport({
         service: "Gmail",
@@ -27,8 +26,6 @@ exports.handler = function (event, context, callback) {
             pass: process.env.password
         }
     });
-    console.log('received message', data.formMessage);
-    console.log(process.env.email);
     smtpTransport.sendMail({
         from: `${data.formName} <${data.formEmail}>`,
         to: `Rajaton <rajatonproducts@gmail.com>`,
