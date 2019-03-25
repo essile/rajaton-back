@@ -5,12 +5,6 @@ import querystring from 'querystring';
 
 const app = express();
 app.use(cors({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Methods': '*',
-    'Access-Control-Max-Age': '2592000',
-    'Access-Control-Allow-Credentials': 'true',
     'allowedHeaders': ['sessionId', 'Content-Type'],
     'exposedHeaders': ['sessionId'],
     'origin': '*',
@@ -20,6 +14,13 @@ app.use(cors({
 
 exports.handler = function (event, context, callback) {
     console.log(event.httpMethod);
+
+    if (event.httpMethod === "OPTIONS") {
+        return {
+            statusCode: 200,
+            "Access-Control-Allow-Origin": "*"
+        };
+    }
 
     if (event.httpMethod !== "POST") {
         console.log('not allowed');
