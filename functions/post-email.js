@@ -28,6 +28,7 @@ exports.handler = function (event, context, callback) {
         }
     });
     console.log('received message', data.formMessage);
+    console.log(process.env.email);
     smtpTransport.sendMail({
         from: `${data.formName} <${data.formEmail}>`,
         to: `Rajaton <rajatonproducts@gmail.com>`,
