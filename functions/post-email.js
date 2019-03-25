@@ -13,11 +13,13 @@ app.use(cors({
 }));
 
 exports.handler = function (event, context, callback) {
+    console.log(event.httpMethod);
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
     const data = event.body;
+    console.log('email received', data);
 
     var smtpTransport = nodemailer.createTransport({
         service: "Gmail",
