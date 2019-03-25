@@ -9,13 +9,15 @@ app.use(cors({
     'exposedHeaders': ['sessionId'],
     'origin': '*',
     'preflightContinue': 'true',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE'
 }));
 
 exports.handler = function (event, context, callback) {
     console.log(event.httpMethod);
 
-    if (event.httpMethod !== "POST" && event.httpMethod !== "OPTIONS" ) {
+    if (event.httpMethod !== "POST") {
         console.log('not allowed');
         return { statusCode: 405, body: "Method Not Allowed" };
     }
@@ -24,6 +26,7 @@ exports.handler = function (event, context, callback) {
     console.log('email received', data);
     const params = querystring.parse(event.body);
     console.log('new email', params);
+    console.log('from', data.formName);
 
     var smtpTransport = nodemailer.createTransport({
         service: "Gmail",
