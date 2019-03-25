@@ -15,7 +15,7 @@ app.use(cors({
 exports.handler = function (event, context, callback) {
     console.log(event.httpMethod);
 
-    if (event.httpMethod !== "POST") {
+    if (event.httpMethod !== "POST" && event.httpMethod !== "OPTIONS" ) {
         console.log('not allowed');
         return { statusCode: 405, body: "Method Not Allowed" };
     }
